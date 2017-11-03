@@ -11798,7 +11798,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load pickled data</span>
@@ -11829,7 +11829,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;coords&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -11891,7 +11891,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Replace each question mark with the appropriate value. </span>
@@ -11968,7 +11968,7 @@ Number of classes = 43
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Data exploration visualization code goes here.</span>
@@ -12494,7 +12494,7 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Preprocess the data here. It is required to normalize the data. Other preprocessing steps could include </span>
@@ -12503,30 +12503,9 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
 
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">normalize</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">minmax_scale</span>
 
-<span class="c1"># Normalization</span>
-<span class="n">X_train_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1"># plt.imshow(X_train[1])</span>
-<span class="c1"># plt.show()</span>
-
-<span class="c1"># X_train_tmp = minmax_scale(X_train_tmp)</span>
-<span class="n">X_train_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train_normalized</span><span class="p">)</span>
-<span class="n">X_train_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train_normalized</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1"># X_train_normalized = np.mean(X_train_normalized, axis=3)</span>
-<span class="c1"># X_train_normalized = np.reshape(X_train_normalized, (X_train.shape[0], 32, 32, 1))</span>
-<span class="c1"># plt.imshow(X_train_tmp[1])</span>
-<span class="c1"># plt.show()</span>
-
-<span class="n">X_test_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="p">[</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">X_test_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_test_normalized</span><span class="p">)</span>
-<span class="n">X_test_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test_normalized</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1"># X_test_normalized = np.mean(X_test_normalized, axis=3)</span>
-<span class="c1"># X_test_normalized = np.reshape(X_test_normalized, (X_test.shape[0], 32, 32, 1))</span>
-
-<span class="n">X_valid_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="p">[</span><span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">X_valid_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_valid_normalized</span><span class="p">)</span>
-<span class="n">X_valid_normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_valid_normalized</span><span class="p">,</span> <span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1"># X_valid_normalized = np.mean(X_valid_normalized, axis=3)</span>
-<span class="c1"># X_valid_normalized = np.reshape(X_valid_normalized, (X_valid.shape[0], 32, 32, 1))</span>
+<span class="n">X_train_normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span>
+<span class="n">X_valid_normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_valid</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span>
+<span class="n">X_test_normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">-</span><span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="mi">128</span>
 </pre></div>
 
 </div>
@@ -12536,7 +12515,338 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train_normalized</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[[[-0.78125  , -0.8046875, -0.8125   ],
+         [-0.7890625, -0.8125   , -0.8203125],
+         [-0.7890625, -0.8125   , -0.828125 ],
+         ..., 
+         [-0.75     , -0.78125  , -0.8125   ],
+         [-0.7578125, -0.7890625, -0.8046875],
+         [-0.7578125, -0.7890625, -0.796875 ]],
+
+        [[-0.7734375, -0.796875 , -0.8046875],
+         [-0.7890625, -0.8046875, -0.8203125],
+         [-0.7890625, -0.8046875, -0.8203125],
+         ..., 
+         [-0.75     , -0.78125  , -0.8125   ],
+         [-0.7578125, -0.7890625, -0.8125   ],
+         [-0.765625 , -0.7890625, -0.8046875]],
+
+        [[-0.78125  , -0.796875 , -0.796875 ],
+         [-0.7890625, -0.8046875, -0.8203125],
+         [-0.796875 , -0.8046875, -0.8203125],
+         ..., 
+         [-0.75     , -0.78125  , -0.8125   ],
+         [-0.7578125, -0.7890625, -0.8125   ],
+         [-0.765625 , -0.7890625, -0.8046875]],
+
+        ..., 
+        [[-0.7890625, -0.8125   , -0.8203125],
+         [-0.78125  , -0.8046875, -0.8125   ],
+         [-0.765625 , -0.8046875, -0.8125   ],
+         ..., 
+         [-0.7890625, -0.8125   , -0.8203125],
+         [-0.78125  , -0.8125   , -0.828125 ],
+         [-0.7734375, -0.8046875, -0.828125 ]],
+
+        [[-0.78125  , -0.8203125, -0.8203125],
+         [-0.7734375, -0.8125   , -0.8125   ],
+         [-0.7578125, -0.8046875, -0.8125   ],
+         ..., 
+         [-0.7890625, -0.8125   , -0.8203125],
+         [-0.78125  , -0.8125   , -0.828125 ],
+         [-0.78125  , -0.8125   , -0.8359375]],
+
+        [[-0.7734375, -0.8203125, -0.8203125],
+         [-0.765625 , -0.8125   , -0.8125   ],
+         [-0.75     , -0.8125   , -0.8203125],
+         ..., 
+         [-0.7890625, -0.8125   , -0.828125 ],
+         [-0.7890625, -0.8203125, -0.8359375],
+         [-0.796875 , -0.828125 , -0.84375  ]]],
+
+
+       [[[-0.78125  , -0.8125   , -0.8125   ],
+         [-0.796875 , -0.8203125, -0.8203125],
+         [-0.7890625, -0.8125   , -0.8125   ],
+         ..., 
+         [-0.7578125, -0.78125  , -0.796875 ],
+         [-0.7578125, -0.78125  , -0.7890625],
+         [-0.75     , -0.78125  , -0.7890625]],
+
+        [[-0.7890625, -0.8125   , -0.8125   ],
+         [-0.7890625, -0.8125   , -0.8125   ],
+         [-0.78125  , -0.8046875, -0.8125   ],
+         ..., 
+         [-0.7578125, -0.7890625, -0.8046875],
+         [-0.7578125, -0.7890625, -0.796875 ],
+         [-0.7421875, -0.7734375, -0.7890625]],
+
+        [[-0.796875 , -0.8125   , -0.8125   ],
+         [-0.796875 , -0.8125   , -0.8125   ],
+         [-0.7890625, -0.8125   , -0.8203125],
+         ..., 
+         [-0.7578125, -0.796875 , -0.8046875],
+         [-0.7578125, -0.7890625, -0.796875 ],
+         [-0.7421875, -0.7734375, -0.7890625]],
+
+        ..., 
+        [[-0.78125  , -0.8046875, -0.8203125],
+         [-0.765625 , -0.7890625, -0.8125   ],
+         [-0.765625 , -0.7890625, -0.8125   ],
+         ..., 
+         [-0.7890625, -0.8125   , -0.828125 ],
+         [-0.7890625, -0.8125   , -0.828125 ],
+         [-0.78125  , -0.8125   , -0.828125 ]],
+
+        [[-0.7890625, -0.8125   , -0.828125 ],
+         [-0.7734375, -0.796875 , -0.8203125],
+         [-0.7578125, -0.796875 , -0.8125   ],
+         ..., 
+         [-0.796875 , -0.8203125, -0.8359375],
+         [-0.7890625, -0.8125   , -0.828125 ],
+         [-0.78125  , -0.8046875, -0.8203125]],
+
+        [[-0.78125  , -0.8125   , -0.8203125],
+         [-0.78125  , -0.8125   , -0.828125 ],
+         [-0.7734375, -0.8125   , -0.828125 ],
+         ..., 
+         [-0.7890625, -0.8203125, -0.828125 ],
+         [-0.7890625, -0.8125   , -0.8203125],
+         [-0.7734375, -0.796875 , -0.8046875]]],
+
+
+       [[[-0.7734375, -0.8046875, -0.8046875],
+         [-0.7734375, -0.796875 , -0.796875 ],
+         [-0.765625 , -0.7890625, -0.7890625],
+         ..., 
+         [-0.7578125, -0.7890625, -0.8125   ],
+         [-0.7578125, -0.78125  , -0.8046875],
+         [-0.75     , -0.7734375, -0.7890625]],
+
+        [[-0.7890625, -0.8125   , -0.8125   ],
+         [-0.7890625, -0.8046875, -0.8046875],
+         [-0.78125  , -0.796875 , -0.796875 ],
+         ..., 
+         [-0.7578125, -0.7890625, -0.8203125],
+         [-0.75     , -0.78125  , -0.8046875],
+         [-0.7421875, -0.765625 , -0.7890625]],
+
+        [[-0.7890625, -0.8125   , -0.8125   ],
+         [-0.78125  , -0.796875 , -0.796875 ],
+         [-0.7734375, -0.7890625, -0.7890625],
+         ..., 
+         [-0.75     , -0.78125  , -0.8125   ],
+         [-0.75     , -0.78125  , -0.8125   ],
+         [-0.7421875, -0.7734375, -0.796875 ]],
+
+        ..., 
+        [[-0.78125  , -0.796875 , -0.828125 ],
+         [-0.7734375, -0.796875 , -0.8359375],
+         [-0.7578125, -0.796875 , -0.828125 ],
+         ..., 
+         [-0.7734375, -0.8125   , -0.8359375],
+         [-0.78125  , -0.8203125, -0.84375  ],
+         [-0.78125  , -0.8203125, -0.828125 ]],
+
+        [[-0.7890625, -0.796875 , -0.8203125],
+         [-0.78125  , -0.8046875, -0.8359375],
+         [-0.765625 , -0.8046875, -0.828125 ],
+         ..., 
+         [-0.78125  , -0.8203125, -0.8359375],
+         [-0.7890625, -0.828125 , -0.84375  ],
+         [-0.78125  , -0.8125   , -0.828125 ]],
+
+        [[-0.7734375, -0.796875 , -0.8203125],
+         [-0.78125  , -0.8125   , -0.8359375],
+         [-0.7734375, -0.8125   , -0.8359375],
+         ..., 
+         [-0.7734375, -0.8046875, -0.8203125],
+         [-0.78125  , -0.8125   , -0.828125 ],
+         [-0.765625 , -0.796875 , -0.8125   ]]],
+
+
+       ..., 
+       [[[-0.6015625, -0.4765625, -0.328125 ],
+         [-0.5703125, -0.5390625, -0.4453125],
+         [-0.4140625, -0.3671875, -0.28125  ],
+         ..., 
+         [ 0.953125 ,  0.9375   ,  0.8984375],
+         [ 0.6171875,  0.65625  ,  0.8203125],
+         [-0.0546875, -0.09375  ,  0.09375  ]],
+
+        [[-0.7265625, -0.671875 , -0.6171875],
+         [-0.625    , -0.6328125, -0.6015625],
+         [-0.2890625, -0.25     , -0.1171875],
+         ..., 
+         [ 0.71875  ,  0.75     ,  0.765625 ],
+         [ 0.3203125,  0.3828125,  0.4609375],
+         [-0.34375  , -0.3203125, -0.21875  ]],
+
+        [[-0.7890625, -0.796875 , -0.7734375],
+         [-0.6796875, -0.703125 , -0.6953125],
+         [-0.5703125, -0.5      , -0.390625 ],
+         ..., 
+         [-0.046875 ,  0.1171875,  0.25     ],
+         [-0.2421875, -0.1875   ,  0.0078125],
+         [-0.5390625, -0.5390625, -0.5625   ]],
+
+        ..., 
+        [[-0.8125   , -0.8203125, -0.7890625],
+         [-0.8359375, -0.84375  , -0.7890625],
+         [-0.84375  , -0.8515625, -0.828125 ],
+         ..., 
+         [-0.40625  , -0.3828125, -0.3515625],
+         [-0.578125 , -0.5      , -0.3984375],
+         [-0.6484375, -0.6015625, -0.4921875]],
+
+        [[-0.7578125, -0.7578125, -0.7421875],
+         [-0.828125 , -0.8203125, -0.7734375],
+         [-0.84375  , -0.859375 , -0.8359375],
+         ..., 
+         [-0.484375 , -0.4765625, -0.34375  ],
+         [-0.5625   , -0.4921875, -0.421875 ],
+         [-0.6484375, -0.5703125, -0.4296875]],
+
+        [[-0.78125  , -0.78125  , -0.765625 ],
+         [-0.828125 , -0.8359375, -0.8046875],
+         [-0.8515625, -0.859375 , -0.8515625],
+         ..., 
+         [-0.4765625, -0.5078125, -0.40625  ],
+         [-0.6953125, -0.6484375, -0.5703125],
+         [-0.75     , -0.7109375, -0.6328125]]],
+
+
+       [[[-0.359375 , -0.390625 , -0.25     ],
+         [-0.0625   , -0.015625 ,  0.15625  ],
+         [-0.125    , -0.0234375,  0.140625 ],
+         ..., 
+         [ 0.4453125,  0.421875 ,  0.3828125],
+         [ 0.59375  ,  0.640625 ,  0.6796875],
+         [ 0.03125  , -0.109375 , -0.0546875]],
+
+        [[-0.421875 , -0.3984375, -0.2734375],
+         [ 0.3359375,  0.359375 ,  0.4453125],
+         [ 0.0703125,  0.28125  ,  0.4375   ],
+         ..., 
+         [ 0.40625  ,  0.4140625,  0.4609375],
+         [ 0.546875 ,  0.5625   ,  0.6640625],
+         [-0.3828125, -0.3359375, -0.3359375]],
+
+        [[-0.578125 , -0.609375 , -0.5625   ],
+         [-0.21875  , -0.171875 , -0.078125 ],
+         [-0.0859375,  0.03125  ,  0.234375 ],
+         ..., 
+         [ 0.2265625,  0.1953125,  0.25     ],
+         [ 0.375    ,  0.4296875,  0.5546875],
+         [-0.3125   , -0.375    , -0.359375 ]],
+
+        ..., 
+        [[-0.828125 , -0.8359375, -0.828125 ],
+         [-0.84375  , -0.8515625, -0.8515625],
+         [-0.859375 , -0.875    , -0.8515625],
+         ..., 
+         [-0.609375 , -0.609375 , -0.53125  ],
+         [-0.7109375, -0.6640625, -0.59375  ],
+         [-0.765625 , -0.6796875, -0.5390625]],
+
+        [[-0.859375 , -0.875    , -0.859375 ],
+         [-0.8515625, -0.8671875, -0.859375 ],
+         [-0.8515625, -0.859375 , -0.8359375],
+         ..., 
+         [-0.71875  , -0.65625  , -0.53125  ],
+         [-0.7421875, -0.71875  , -0.625    ],
+         [-0.71875  , -0.6640625, -0.5234375]],
+
+        [[-0.859375 , -0.8671875, -0.84375  ],
+         [-0.8359375, -0.84375  , -0.8203125],
+         [-0.8125   , -0.828125 , -0.8046875],
+         ..., 
+         [-0.75     , -0.734375 , -0.6796875],
+         [-0.6484375, -0.671875 , -0.625    ],
+         [-0.6796875, -0.6640625, -0.59375  ]]],
+
+
+       [[[-0.4609375, -0.3828125, -0.25     ],
+         [-0.8125   , -0.796875 , -0.78125  ],
+         [-0.6875   , -0.671875 , -0.6484375],
+         ..., 
+         [ 0.7578125,  0.828125 ,  0.8515625],
+         [ 0.1796875,  0.2578125,  0.296875 ],
+         [ 0.28125  ,  0.265625 ,  0.3203125]],
+
+        [[-0.2265625, -0.140625 , -0.0234375],
+         [-0.71875  , -0.6796875, -0.6328125],
+         [-0.5078125, -0.5625   , -0.515625 ],
+         ..., 
+         [ 0.5390625,  0.6875   ,  0.75     ],
+         [ 0.203125 ,  0.2734375,  0.3203125],
+         [ 0.28125  ,  0.2734375,  0.2421875]],
+
+        [[-0.1875   , -0.1640625, -0.1171875],
+         [-0.734375 , -0.7109375, -0.6875   ],
+         [-0.4375   , -0.453125 , -0.3984375],
+         ..., 
+         [ 0.7421875,  0.8515625,  0.8359375],
+         [ 0.4140625,  0.5      ,  0.546875 ],
+         [ 0.296875 ,  0.3046875,  0.2421875]],
+
+        ..., 
+        [[-0.8359375, -0.84375  , -0.8203125],
+         [-0.8203125, -0.8125   , -0.765625 ],
+         [-0.8515625, -0.84375  , -0.8125   ],
+         ..., 
+         [-0.6484375, -0.6328125, -0.578125 ],
+         [-0.546875 , -0.515625 , -0.453125 ],
+         [-0.546875 , -0.453125 , -0.359375 ]],
+
+        [[-0.859375 , -0.8671875, -0.8359375],
+         [-0.8515625, -0.8515625, -0.8125   ],
+         [-0.859375 , -0.859375 , -0.8203125],
+         ..., 
+         [-0.71875  , -0.71875  , -0.6875   ],
+         [-0.546875 , -0.5390625, -0.453125 ],
+         [-0.5234375, -0.4609375, -0.3671875]],
+
+        [[-0.8671875, -0.875    , -0.8515625],
+         [-0.875    , -0.8828125, -0.859375 ],
+         [-0.875    , -0.8828125, -0.859375 ],
+         ..., 
+         [-0.6875   , -0.6875   , -0.65625  ],
+         [-0.5546875, -0.515625 , -0.4296875],
+         [-0.5546875, -0.46875  , -0.375    ]]]], dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_train_normalized</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -12579,14 +12889,14 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Define your architecture here.</span>
 <span class="c1">### Feel free to use as many code cells as needed.</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
-<span class="n">epochs</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
 
 <span class="kn">from</span> <span class="nn">tensorflow.contrib.layers</span> <span class="k">import</span> <span class="n">flatten</span>
@@ -12597,12 +12907,14 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">avepooling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maxpooling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
     
 <span class="k">def</span> <span class="nf">fc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+    
 <span class="k">def</span> <span class="nf">lenet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
     <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -12625,10 +12937,13 @@ TESIiIjIZJiIEBERkckwESEiIiKTYSJCREREJvP/AM9Wu8priQO7AAAAAElFTkSuQmCC
     <span class="n">fc1_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="n">fc1_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="n">fc1</span> <span class="o">=</span> <span class="n">fc</span><span class="p">(</span><span class="n">conv2</span><span class="p">,</span> <span class="n">fc1_w</span><span class="p">,</span> <span class="n">fc1_b</span><span class="p">)</span>
+    <span class="n">fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">fc1</span><span class="p">)</span>
+    <span class="n">fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span> <span class="n">dropout</span><span class="p">)</span>
     
     <span class="n">fc2_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">84</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="n">fc2_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">84</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="n">fc2</span> <span class="o">=</span> <span class="n">fc</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span> <span class="n">fc2_w</span><span class="p">,</span> <span class="n">fc2_b</span><span class="p">)</span>
+    <span class="n">fc2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">fc2</span><span class="p">)</span>
     <span class="n">fc2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span> <span class="n">dropout</span><span class="p">)</span>
     
     <span class="n">fc3_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">43</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
@@ -12665,7 +12980,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Train your model here.</span>
@@ -12680,12 +12995,12 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 
 <span class="n">prob_keep</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.005</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
 
 <span class="n">logits</span> <span class="o">=</span> <span class="n">lenet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prob_keep</span><span class="p">)</span>
 <span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">y_one_hot</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
 <span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">)</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
 
 <span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_one_hot</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">)</span>
@@ -12709,7 +13024,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train the Model</span>
@@ -12730,8 +13045,8 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
         
         <span class="k">for</span> <span class="n">offset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
             <span class="n">batch_x</span><span class="p">,</span> <span class="n">batch_y</span> <span class="o">=</span> <span class="n">X_data</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span><span class="o">+</span><span class="n">batch_size</span><span class="p">],</span> <span class="n">y_data</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span><span class="o">+</span><span class="n">batch_size</span><span class="p">]</span>
-            <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">})</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
+            <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">,</span> <span class="n">prob_keep</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">})</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch_y</span><span class="p">,</span> <span class="n">prob_keep</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
             <span class="n">batch_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">offset</span><span class="o">/</span><span class="n">batch_size</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
             <span class="k">if</span> <span class="n">batch_index</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch </span><span class="si">{:&gt;3d}</span><span class="s1">, batch </span><span class="si">{:&gt;10d}</span><span class="s1">, cost </span><span class="si">{:&gt;10.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">batch_index</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -12740,6 +13055,8 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
         <span class="n">validation_accuracy</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">X_valid_normalized</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation accuracy = </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">validation_accuracy</span><span class="p">))</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy = </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test_normalized</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)))</span>
         
         
     <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
@@ -12761,9 +13078,157 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training...
 
-Epoch   0, batch        272, cost     3.6363
+Epoch   0, batch        272, cost     0.7243
 Epoch 1
-Validation accuracy = 0.05669
+Validation accuracy = 0.73991
+Epoch   1, batch        272, cost     0.4042
+Epoch 2
+Validation accuracy = 0.79887
+Epoch   2, batch        272, cost     0.2971
+Epoch 3
+Validation accuracy = 0.84376
+Epoch   3, batch        272, cost     0.2032
+Epoch 4
+Validation accuracy = 0.85488
+Epoch   4, batch        272, cost     0.2871
+Epoch 5
+Validation accuracy = 0.88299
+Epoch   5, batch        272, cost     0.1259
+Epoch 6
+Validation accuracy = 0.87732
+Epoch   6, batch        272, cost     0.1300
+Epoch 7
+Validation accuracy = 0.88957
+Epoch   7, batch        272, cost     0.0714
+Epoch 8
+Validation accuracy = 0.89070
+Epoch   8, batch        272, cost     0.0877
+Epoch 9
+Validation accuracy = 0.90408
+Epoch   9, batch        272, cost     0.0363
+Epoch 10
+Validation accuracy = 0.90771
+Epoch  10, batch        272, cost     0.0140
+Epoch 11
+Validation accuracy = 0.90045
+Epoch  11, batch        272, cost     0.0285
+Epoch 12
+Validation accuracy = 0.91111
+Epoch  12, batch        272, cost     0.0052
+Epoch 13
+Validation accuracy = 0.90408
+Epoch  13, batch        272, cost     0.0813
+Epoch 14
+Validation accuracy = 0.91066
+Epoch  14, batch        272, cost     0.0067
+Epoch 15
+Validation accuracy = 0.90544
+Epoch  15, batch        272, cost     0.0105
+Epoch 16
+Validation accuracy = 0.91247
+Epoch  16, batch        272, cost     0.0122
+Epoch 17
+Validation accuracy = 0.90771
+Epoch  17, batch        272, cost     0.0165
+Epoch 18
+Validation accuracy = 0.91837
+Epoch  18, batch        272, cost     0.0213
+Epoch 19
+Validation accuracy = 0.92290
+Epoch  19, batch        272, cost     0.0071
+Epoch 20
+Validation accuracy = 0.93107
+Epoch  20, batch        272, cost     0.0788
+Epoch 21
+Validation accuracy = 0.91429
+Epoch  21, batch        272, cost     0.0034
+Epoch 22
+Validation accuracy = 0.91406
+Epoch  22, batch        272, cost     0.0515
+Epoch 23
+Validation accuracy = 0.92902
+Epoch  23, batch        272, cost     0.0092
+Epoch 24
+Validation accuracy = 0.92426
+Epoch  24, batch        272, cost     0.0019
+Epoch 25
+Validation accuracy = 0.91655
+Epoch  25, batch        272, cost     0.0022
+Epoch 26
+Validation accuracy = 0.92494
+Epoch  26, batch        272, cost     0.0058
+Epoch 27
+Validation accuracy = 0.93107
+Epoch  27, batch        272, cost     0.0163
+Epoch 28
+Validation accuracy = 0.92608
+Epoch  28, batch        272, cost     0.0080
+Epoch 29
+Validation accuracy = 0.93447
+Epoch  29, batch        272, cost     0.0016
+Epoch 30
+Validation accuracy = 0.93855
+Epoch  30, batch        272, cost     0.0027
+Epoch 31
+Validation accuracy = 0.93764
+Epoch  31, batch        272, cost     0.0070
+Epoch 32
+Validation accuracy = 0.92132
+Epoch  32, batch        272, cost     0.0019
+Epoch 33
+Validation accuracy = 0.92744
+Epoch  33, batch        272, cost     0.0008
+Epoch 34
+Validation accuracy = 0.92880
+Epoch  34, batch        272, cost     0.0089
+Epoch 35
+Validation accuracy = 0.93265
+Epoch  35, batch        272, cost     0.0008
+Epoch 36
+Validation accuracy = 0.92698
+Epoch  36, batch        272, cost     0.0021
+Epoch 37
+Validation accuracy = 0.93107
+Epoch  37, batch        272, cost     0.0002
+Epoch 38
+Validation accuracy = 0.93878
+Epoch  38, batch        272, cost     0.0009
+Epoch 39
+Validation accuracy = 0.94172
+Epoch  39, batch        272, cost     0.0004
+Epoch 40
+Validation accuracy = 0.93764
+Epoch  40, batch        272, cost     0.0003
+Epoch 41
+Validation accuracy = 0.94649
+Epoch  41, batch        272, cost     0.0021
+Epoch 42
+Validation accuracy = 0.94218
+Epoch  42, batch        272, cost     0.0011
+Epoch 43
+Validation accuracy = 0.94172
+Epoch  43, batch        272, cost     0.0041
+Epoch 44
+Validation accuracy = 0.93560
+Epoch  44, batch        272, cost     0.0043
+Epoch 45
+Validation accuracy = 0.93243
+Epoch  45, batch        272, cost     0.0009
+Epoch 46
+Validation accuracy = 0.94444
+Epoch  46, batch        272, cost     0.0098
+Epoch 47
+Validation accuracy = 0.93651
+Epoch  47, batch        272, cost     0.0002
+Epoch 48
+Validation accuracy = 0.93673
+Epoch  48, batch        272, cost     0.0018
+Epoch 49
+Validation accuracy = 0.94467
+Epoch  49, batch        272, cost     0.0013
+Epoch 50
+Validation accuracy = 0.92812
+Test accuracy = 0.93428
 </pre>
 </div>
 </div>
@@ -12806,7 +13271,7 @@ Validation accuracy = 0.05669
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Load the images and plot them here.</span>
@@ -12828,7 +13293,7 @@ Validation accuracy = 0.05669
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Run the predictions here and use the model to output the prediction for each image.</span>
@@ -12851,7 +13316,7 @@ Validation accuracy = 0.05669
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Calculate the accuracy for these 5 new images. </span>
@@ -12909,7 +13374,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -12963,7 +13428,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Visualize your network&#39;s feature maps here.</span>
